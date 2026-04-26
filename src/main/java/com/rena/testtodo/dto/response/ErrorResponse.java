@@ -5,17 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class GenericResponse <T> {
+public class ErrorResponse {
+    private String code;
     private String message;
-    private T data;
-    private int statusCode;
-
-    public  GenericResponse(String message, int statusCode) {
-        this.message = message;
-        this.statusCode = statusCode;
-    }
+    private List<String> errors;
+    private LocalDateTime timestamp;
 }

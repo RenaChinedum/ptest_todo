@@ -18,7 +18,8 @@ public class Users {
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
     private List<Task> task;
 }
